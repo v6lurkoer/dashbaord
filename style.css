@@ -30,6 +30,95 @@ header {
 
 header {
   grid-area: a;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+}
+
+#utility {
+  display: grid;
+  grid-template-areas:
+    ". . ."
+    "bell avatar profile"
+    ". . .";
+}
+
+#bell {
+  grid-area: bell;
+  width: 100px;
+  place-self: center;
+}
+
+#avatar {
+  grid-area: avatar;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  place-self: center;
+}
+
+#avatar img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+#profile {
+  grid-area: profile;
+  width: 100px;
+  place-self: center;
+}
+
+#user-greet {
+  display: grid;
+  grid-template-areas:
+  "avatar greet . .";
+}
+
+#avatar-large {
+  grid-area: avatar;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  place-self: center;
+}
+
+#avatar-large img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+#greet {
+  grid-area: greet;
+  place-self: center;
+}
+
+#greet h1 {
+  text-wrap: nowrap;
+}
+
+#content-buttons {
+  display: grid;
+  grid-template-areas:
+  ". . ."
+  "new upload share"
+  ". . .";
+}
+
+#new {
+  grid-area: new;
+  width: 100px;
+}
+
+#upload {
+  grid-area: upload;
+  width: 100px;
+}
+#share {
+  grid-area: share;
+  width: 100px;
 }
 
 #sidebar {
