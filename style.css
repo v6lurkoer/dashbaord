@@ -50,16 +50,19 @@ header {
   place-self: center;
 }
 
-#avatar {
+#utility .avatar {
   grid-area: avatar;
+  place-self: center;
+}
+
+.avatar {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   overflow: hidden;
-  place-self: center;
 }
 
-#avatar img {
+.avatar img {
   max-width: 100%;
   object-fit: cover;
 }
@@ -160,7 +163,9 @@ header {
 #projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 4fr 4fr 4fr;
+  grid-template-rows: 4ch repeat(3, 1fr);
+
+  padding: 30px;
 }
 
 #projects h2 {
@@ -169,16 +174,42 @@ header {
 
 #announcement-trending {
   display: grid;
-  grid-template-rows: 2fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 #announcements {
   display: grid;
-  grid-template-rows: 1fr 2fr 2fr 2fr;
+  grid-template-rows: 4ch 1fr;
+  padding: 30px;
+}
+
+#announcements .items .item {
+  display: grid;
+
+  font-size: 12px;
+  padding: 0 20px
 }
 
 #trending {
   display: grid;
-  grid-template-rows: 1fr 4fr 4fr 4fr;
+  grid-template-rows: 4ch 1fr;
+  padding: 30px;
+}
 
+.items {
+  display: grid;
+  background-color: grey;
+  align-items: center;
+}
+
+#trending .items .item {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  font-size: 12px;
+  padding: 0 20px;
+}
+
+.item .text {
+  align-self: center;
 }
