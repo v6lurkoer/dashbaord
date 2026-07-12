@@ -5,6 +5,11 @@
 
 :root {
   font-size: 16px;
+  /* Colours taken from https://colorcombinations.org/palettes/wada-243-raw-sienna-ivory-buff/ <3 */
+  --raw-sienna: #bb7125;
+  --ivory-buff: #ebd3a2;
+  --olive-green: #6b7140;
+  --slate-color: #34454c;
 }
 
 html,
@@ -20,8 +25,6 @@ header {
 #container {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 5fr;
-  grid-template-columns: 1fr 4fr;
   grid-template-areas:
     "b a a"
     "b c c"
@@ -36,6 +39,13 @@ header {
   grid-template-columns: 2fr 1fr;
 }
 
+#search-bar {
+  padding: 20px 0 0 30px;
+}
+
+/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
+/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
+/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
 #utility {
   display: grid;
   grid-template-areas:
@@ -73,66 +83,70 @@ header {
   place-self: center;
 }
 
-#user-greet {
+#user-greeting {
   display: grid;
-  grid-template-areas:
-  "avatar greet . .";
+  grid-template-columns: 1fr 4fr;
+
+  padding: 0 0 10px 30px;
+}
+
+#user-greeting #avatar-large {
+  align-self: end;
 }
 
 #avatar-large {
-  grid-area: avatar;
   height: 100px;
   width: 100px;
   border-radius: 50%;
   overflow: hidden;
-  place-self: center;
 }
 
 #avatar-large img {
   max-width: 100%;
   object-fit: cover;
+  align-self: end;
 }
 
-#greet {
-  grid-area: greet;
-  place-self: center;
+#greeting {
+  display: grid;
 }
 
-#greet h1 {
-  text-wrap: nowrap;
+#greeting p:first-child {
+  align-self: end;
+}
+
+#greeting p:last-child {
+  align-self: start;
+}
+
+#username {
+  font-size: 4ch;
+  font-weight: bold;
 }
 
 #content-buttons {
   display: grid;
-  grid-template-areas:
-  ". . ."
-  "new upload share"
-  ". . .";
+  grid-template-columns: repeat(3, 100px);
+  justify-content: end;
+  align-items: center;
 }
 
-#new {
-  grid-area: new;
-  width: 100px;
-}
-
-#upload {
-  grid-area: upload;
-  width: 100px;
-}
-#share {
-  grid-area: share;
-  width: 100px;
+#content-buttons button {
+  width: 80px;
+  height: 50px;
 }
 
 #sidebar {
   grid-area: b;
+
+  background-color: var(--olive-green);
 }
 
 #dashboard-title {
   display: grid;
   grid-template-columns: 1fr 4fr;
 
-  padding: 10px;
+  padding: 20px 10px 0 10px;
 }
 
 #dashboard-title img {
@@ -165,11 +179,36 @@ header {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 4ch repeat(3, 1fr);
 
-  padding: 30px;
+  gap: 10px;
+  padding: 10px 30px 10px 30px;
 }
 
 #projects h2 {
   grid-column-start: span 2;
+}
+
+.project {
+  display: grid;
+  grid-template-rows: 4ch 100px 50px;
+
+  padding: 20px 10px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 40px 40px 40px;
+  justify-content: end;
+  gap: 10px;
+}
+
+.buttons button {
+  border: none;
+  background: transparent;
+}
+
+.buttons button img {
+  height: 30px;
+  width: auto;
 }
 
 #announcement-trending {
@@ -180,10 +219,11 @@ header {
 #announcements {
   display: grid;
   grid-template-rows: 4ch 1fr;
+
   padding: 30px;
 }
 
-#announcements .items .item {
+.items .item {
   display: grid;
 
   font-size: 12px;
@@ -193,21 +233,17 @@ header {
 #trending {
   display: grid;
   grid-template-rows: 4ch 1fr;
+
   padding: 30px;
 }
 
 .items {
   display: grid;
-  background-color: grey;
   align-items: center;
 }
 
 #trending .items .item {
-  display: grid;
   grid-template-columns: 1fr 2fr;
-
-  font-size: 12px;
-  padding: 0 20px;
 }
 
 .item .text {
