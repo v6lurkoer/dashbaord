@@ -5,6 +5,7 @@
 
 :root {
   font-size: 16px;
+  font-family: "Arial", sans-serif, system-ui;
   /* Colours taken from https://colorcombinations.org/palettes/wada-243-raw-sienna-ivory-buff/ <3 */
   --raw-sienna: #bb7125;
   --ivory-buff: #ebd3a2;
@@ -18,7 +19,8 @@ body {
 }
 
 div,
-header {
+header,
+section {
   border: solid 1px red;
 }
 
@@ -35,34 +37,58 @@ header {
   grid-area: a;
 
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 2fr 1fr;
+
+  padding: 0 0 10px 0;
 }
 
 #search-bar {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+
   padding: 20px 0 0 30px;
+  gap: 8px;
 }
 
-/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
-/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
-/* REWORKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK */
+label {
+  height: 50px;
+  cursor: pointer;
+}
+
+label img {
+  height: 50px;
+  width: 50px;
+}
+
+#search {
+  height: 50px;
+  width: 60ch;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
 #utility {
   display: grid;
-  grid-template-areas:
-    ". . ."
-    "bell avatar profile"
-    ". . .";
+  grid-template-columns: repeat(9, 1fr);
+
+  padding: 20px 0 0 0;
 }
 
 #bell {
-  grid-area: bell;
+  grid-column-start: 3;
+
+  height: 60px;
   width: 100px;
-  place-self: center;
+  border: none;
+  background-color: transparent;
+}
+
+#bell img {
+  max-width: 50%;
 }
 
 #utility .avatar {
-  grid-area: avatar;
-  place-self: center;
+  grid-column-start: 5;
 }
 
 .avatar {
@@ -78,9 +104,10 @@ header {
 }
 
 #profile {
-  grid-area: profile;
-  width: 100px;
-  place-self: center;
+  grid-column-start: 7;
+
+  width: 150px;
+  height: 50px;
 }
 
 #user-greeting {
@@ -109,6 +136,7 @@ header {
 
 #greeting {
   display: grid;
+  gap: 10px;
 }
 
 #greeting p:first-child {
@@ -126,14 +154,36 @@ header {
 
 #content-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  justify-content: end;
-  align-items: center;
+  grid-template-columns: repeat(9, 1fr);
+  align-items: end;
+  padding: 0 0 10px 0;
 }
 
 #content-buttons button {
-  width: 80px;
+  width: 100px;
   height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--slate-color);
+  color: white;
+  font-size: 2ch;
+}
+
+#content-buttons button:hover {
+  opacity: 90%;
+  cursor: pointer;
+}
+
+#content-buttons button:first-child {
+  grid-column-start: 3;
+}
+
+#content-buttons button:nth-child(2) {
+  grid-column-start: 5;
+}
+
+#content-buttons button:last-child {
+  grid-column-start: 7;
 }
 
 #sidebar {
