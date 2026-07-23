@@ -18,12 +18,6 @@ body {
   height: 100%;
 }
 
-div,
-header,
-section {
-/*  border: solid 1px red;*/
-}
-
 #container {
   height: 100%;
   display: grid;
